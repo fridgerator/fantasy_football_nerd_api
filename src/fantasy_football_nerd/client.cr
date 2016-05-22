@@ -9,9 +9,7 @@ module FantasyFootballNerd
     def self.get(endpoint : String, *args)
       url = "#{BASE_URL}#{endpoint}/json/#{API_KEY}"
       args.each {|arg| url += "/#{arg}"}
-      # puts url
       response = HTTP::Client.get url
-      # puts response.body
       handle_response(response, endpoint)
     end
 

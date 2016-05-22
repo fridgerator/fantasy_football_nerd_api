@@ -1,11 +1,19 @@
 # fantasy_football_nerd_crystal
 
-TODO: Write a description here
+Crystal library for the Fantasy Football Nerd API - http://www.fantasyfootballnerd.com/fantasy-football-api
+
+This is a very early adoption, **TESTS HAVE NOT BEEN WRITTEN**, this is very  much alpha stage.
 
 ## Installation
 
 
-TODO: Write installation instructions here
+Add this to your application's `shard.yml`:
+
+```yaml
+dependencies:
+  fantasy_football_nerd_cyrstal:
+    github: fridgerator/fantasy_football_nerd_api
+```
 
 
 ## Usage
@@ -28,4 +36,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Nick Franken - creator, maintainer
+- [fridgerator](https://github.com/fridgerator) Nick Franken - creator, maintainer
