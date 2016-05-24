@@ -50,21 +50,21 @@ module FantasyFootballNerd
   end
 
   def self.draft_projections(position = "")
-    raise Exception.new("Position must be: QB, RB, WR, TE, K or DEF") unless ["QB", "RB", "WR", "TE", "K", "DEF", ""].includes?(position)
+    raise Exception.new("Position must be: QB, RB, WR, TE, K or DEF") unless ["QB", "RB", "WR", "TE", "K", "DEF"].includes?(position)
 
     response = FantasyFootballNerd::Client.get("draft-projections", position)
     Array(FantasyFootballNerd::DraftProjection).from_json(response.to_s)
   end
 
   def self.weekly_rankings(position = "", week = 1, ppr = false)
-    raise Exception.new("Position must be: QB, RB, WR, TE, K or DEF") unless ["QB", "RB", "WR", "TE", "K", "DEF", ""].includes?(position)
+    raise Exception.new("Position must be: QB, RB, WR, TE, K or DEF") unless ["QB", "RB", "WR", "TE", "K", "DEF"].includes?(position)
 
     response = FantasyFootballNerd::Client.get("weekly-rankings", position, week.to_s, ppr ? "1" : nil)
     Array(FantasyFootballNerd::WeeklyRanking).from_json(response.to_s)
   end
 
   def self.weekly_projections(position = "", week = nil)
-    raise Exception.new("Position must be: QB, RB, WR, TE, K or DEF") unless ["QB", "RB", "WR", "TE", "K", "DEF", ""].includes?(position)
+    raise Exception.new("Position must be: QB, RB, WR, TE, K or DEF") unless ["QB", "RB", "WR", "TE", "K", "DEF"].includes?(position)
 
     response = FantasyFootballNerd::Client.get("weekly-projections", position, week)
     Array(FantasyFootballNerd::WeeklyProjection).from_json(response.to_s)
