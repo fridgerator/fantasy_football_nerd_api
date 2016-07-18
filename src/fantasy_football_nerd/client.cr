@@ -66,6 +66,8 @@ module FantasyFootballNerd
         "Rankings"
       when "weekly-projections"
         "Projections"
+      when "depth-charts"
+        "DepthCharts"
       else
         "routes"
       end

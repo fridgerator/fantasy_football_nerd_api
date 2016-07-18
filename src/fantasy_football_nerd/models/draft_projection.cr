@@ -4,7 +4,7 @@ module FantasyFootballNerd
 			player_id: {type: String, key: "playerId"},
 			display_name: {type: String, key: "displayName"},
 			team: String,
-			fantasy_points: {type: String, key: "fantasyPoints", nilable: true}
+			fantasy_points: {type: String, key: "fantasyPoints", nilable: true},
 
 			# General / Offence
 			rush_yards: {type: String, key: "rushYards", nilable: true},

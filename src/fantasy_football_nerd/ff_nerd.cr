@@ -41,12 +41,12 @@ module FantasyFootballNerd
 
   def self.auction_values(ppr = false)
     response = FantasyFootballNerd::Client.get("auction", ppr ? "ppr" : nil)
-    Array(FantasyFootballNerd::AuctionValue).from_json(response.to_s);
+    Array(FantasyFootballNerd::AuctionValue).from_json(response.to_s)
   end
 
   def self.draft_rankings(ppr = false)
     response = FantasyFootballNerd::Client.get("draft-rankings", ppr ? "1" : nil)
-    Array(FantasyFootballNerd::DraftRanking).from_json(response.to_s);
+    Array(FantasyFootballNerd::DraftRanking).from_json(response.to_s)
   end
 
   def self.draft_projections(position = "")
@@ -70,7 +70,19 @@ module FantasyFootballNerd
     Array(FantasyFootballNerd::WeeklyProjection).from_json(response.to_s)
   end
 
-  # TODO: injuries
+  def self.depth_charts
+    response = FantasyFootballNerd::Client.get("depth-charts")
+    depth_players = [] of NflPlayer
+    JSON.parse(response.to_s).each do |team, position|
+      position.each do |position, players|
+        players.to_a.each do |player|
+          puts "hey"
+          puts player.to_json
+          depth_players << FantasyFootballNerd::NflPlayer.from_json(player.to_json)
+        end
+      end
+    end
+    depth_players
+  end
 
-  # TODO: depth charts
 end

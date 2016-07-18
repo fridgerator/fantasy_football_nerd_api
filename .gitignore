@@ -3,3 +3,6 @@
 /.crystal/
 /.shards/
 test.cr
+
+# editor
+.vscode

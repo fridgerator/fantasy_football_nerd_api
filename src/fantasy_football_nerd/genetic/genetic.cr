@@ -8,15 +8,17 @@ module FantasyFootballNerd
 			@@population = Team.create_population(population_size, @@players)
 
 			best_teams = [] of Team
-			# puts "grade #{population_grade()}"
+			puts "grade #{population_grade()}"
 
 			itterations.times do
+				debugger
 				evolve_population()
-				# puts "grade #{population_grade()}"
+				puts "grade #{population_grade()}"
 				valid_teams = @@population.select{|team| team.salary_sum() < salary_cap }
 				valid_teams.sort!{|a, b| b.fitness() <=> a.fitness() }
 				best_teams << valid_teams[0] unless valid_teams.empty?
 			end
+
 
 			best_teams.sort!{|a, b| b.fitness() <=> a.fitness() }
 			best_teams[0].print()
@@ -34,7 +36,7 @@ module FantasyFootballNerd
 			summed / @@population.size.to_f
 		end
 
-		def self.evolve_population(retain = 0.35, random_select = 0.05, mutate_chance = 0.005)
+		def self.evolve_population(retain = 0.35, random_select = 0.05, mutate_chance = 0.07)
 			graded = @@population.sort{|a, b| b.fitness() <=> a.fitness() }
 			retain_index = (graded.size.to_f * retain).to_i
 			parents = graded[0..retain_index-1]
@@ -53,9 +55,7 @@ module FantasyFootballNerd
 				male = parents.sample()
 				female = parents.sample()
 
-				if male != female
-					children += Team.breed(male, female)
-				end
+				children += Team.breed(male, female) if male != female
 			end
 
 			@@population = parents += children
