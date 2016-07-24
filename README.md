@@ -11,7 +11,7 @@ Add this to your application's `shard.yml`:
 
 ```yaml
 dependencies:
-  fantasy_football_nerd_cyrstal:
+  fantasy_football_nerd_crystal:
     github: fridgerator/fantasy_football_nerd_api
 ```
 

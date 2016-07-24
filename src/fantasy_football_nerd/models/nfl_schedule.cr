@@ -15,12 +15,12 @@ module FantasyFootballNerd
       low: {type: String, nilable: true},
       high: {type: String, nilable: true},
       forecast: {type: String, nilable: true},
-      windChill: {type: String, nilable: true},
-      windSpeed: {type: String, nilable: true},
-      domeImg: {type: String, nilable: true},
+      wind_chill: {type: String, key: "windChill", nilable: true},
+      wind_speed: {type: String, key: "windSpeed", nilable: true},
+      dome_img: {type: String, key: "domeImg", nilable: true},
       small_img: {type: String, nilable: true, key: "smallImg"},
       medium_img: {type: String, nilable: true, key: "mediumImg"},
-      large_imge: {type: String, nilable: true, key: "largeImg"}
+      large_img: {type: String, nilable: true, key: "largeImg"}
     })
   end
 end

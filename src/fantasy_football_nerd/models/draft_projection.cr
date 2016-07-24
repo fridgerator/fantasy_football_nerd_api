@@ -19,7 +19,7 @@ module FantasyFootballNerd
 
 			# RB
 			rush_att: {type: String, key: "rushAtt", nilable: true},
-			funbles: {type: String, nilable: true},
+			fumbles: {type: String, nilable: true},
 			rec: {type: String, nilable: true},
 			rec_yards: {type: String, key: "recYards", nilable: true},
 
