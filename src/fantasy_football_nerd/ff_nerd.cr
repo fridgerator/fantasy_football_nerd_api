@@ -56,7 +56,7 @@ module FantasyFootballNerd
     Array(FantasyFootballNerd::DraftProjection).from_json(response.to_s)
   end
 
-  def self.weekly_rankings(position = "", week = 1, ppr = false)
+  def self.weekly_rankings(position = "", week = 1, ppr = true)
     raise Exception.new("Position must be: QB, RB, WR, TE, K or DEF") unless ["QB", "RB", "WR", "TE", "K", "DEF"].includes?(position)
 
     response = FantasyFootballNerd::Client.get("weekly-rankings", position, week.to_s, ppr ? "1" : nil)
@@ -76,8 +76,6 @@ module FantasyFootballNerd
     JSON.parse(response.to_s).each do |team, position|
       position.each do |position, players|
         players.to_a.each do |player|
-          puts "hey"
-          puts player.to_json
           depth_players << FantasyFootballNerd::NflPlayer.from_json(player.to_json)
         end
       end
