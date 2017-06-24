@@ -11,7 +11,7 @@ module FantasyFootballNerd
       stand_dev: {type: String, key: "standDev", nilable: true},
       nerd_rank: {type: String, key: "nerdRank"},
       position_rank: {type: String, key: "positionRank"},
-      overall_rank: {type: String, key: "overallRank"}
+      overall_rank: {type: Int32, key: "overallRank"}
     })
   end
 end
