@@ -1,6 +1,6 @@
 module FantasyFootballNerd
   class Client
-    BASE_URL = "http://www.fantasyfootballnerd.com/service/"
+    BASE_URL = "https://www.fantasyfootballnerd.com/service/"
     API_KEY = ENV["FF_NERDS_API_KEY"]? ? ENV["FF_NERDS_API_KEY"] : "test"
 
     # Sends query to google api endpoint.
